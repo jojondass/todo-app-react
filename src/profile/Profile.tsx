@@ -1,4 +1,4 @@
-import { type } from 'os'
+import PubSub from 'pubsub-js'
 import { useEffect, useState } from 'react'
 import * as UI from '../shared/ui'
 
@@ -17,30 +17,35 @@ export default function Profile({ open, onClose }: ProfileProps) {
       setUsername(JSON.parse(storeUser).displayName)
     }
   }, [])
+
+  useEffect(() => {
+    console.log('publication de changeUsername ' + username)
+    PubSub.publish('changeUsername', username)
+  }, [username])
+
   const changeUsername = (e: React.SyntheticEvent<HTMLInputElement>) => {
     setUsername(e.currentTarget.value)
   }
   return (
     <UI.PinkRightFrame open={open}>
       <UI.PinkFrameHeader>
-      <UI.PinkFrameClose
+        <UI.PinkFrameClose
           className="fa-solid fa-circle-xmark"
           onClick={onClose}
         ></UI.PinkFrameClose>
         <UI.PinkFrameTitle>Mon Profil</UI.PinkFrameTitle>
       </UI.PinkFrameHeader>
-        <UI.AppContainer>
-          <UI.InputContainer display="white">
-            <UI.Input
-              type="text"
-              display="white"
-              placeholder="Votre nom d'utilisateur"
-              value={username}
-              onChange={changeUsername}
-            ></UI.Input>
-          </UI.InputContainer>
-        </UI.AppContainer>
-        
+      <UI.AppContainer>
+        <UI.InputContainer display="white">
+          <UI.Input
+            type="text"
+            display="white"
+            placeholder="Votre nom d'utilisateur"
+            value={username}
+            onChange={changeUsername}
+          ></UI.Input>
+        </UI.InputContainer>
+      </UI.AppContainer>
     </UI.PinkRightFrame>
   )
 }

@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import PubSub from 'pubsub-js'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import uniqid from 'uniqid'
 import BottomNav from '../shared/BottomNav'
@@ -57,8 +58,27 @@ export type TaskList = Array<Todo>
  *    un « filter » sur la « taskList »)
  */
 export default function TodoList() {
+  const [username, setUsername] = useState<string>('')
   const [task, setTask] = useState<Task>('')
   const [taskList, setTaskList] = useState<TaskList>([])
+
+  useEffect(() => {
+    const storeUser = localStorage.getItem('user')
+
+    if (storeUser) {
+      setUsername(JSON.parse(storeUser).displayName)
+    }
+  }, [])
+
+  useEffect(() => {
+    console.log('Souscription au tpic "changeUsername"')
+    const onUsernameChange = (topic: string, newUsername: string) => {
+      console.log('récéption du username : ' + username)
+      setUsername(newUsername)
+    }
+
+    PubSub.subscribe('changeUsername', onUsernameChange)
+  }, [])
 
   // onTaskChange :: (React.SyntheticEvent) -> void
   const onTaskChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
@@ -161,14 +181,17 @@ export default function TodoList() {
           <UI.TagIcon className="fa-solid fa-user"></UI.TagIcon>
           <UI.TagLabelContainer>
             <UI.TagLabelEntitled>Par</UI.TagLabelEntitled>
-            <UI.TagLabel>John</UI.TagLabel>
+            <UI.TagLabel>{username}</UI.TagLabel>
           </UI.TagLabelContainer>
         </UI.Tag>
       </UI.CenteredFlexContainer>
 
       <UI.StretchFlexContainer>
         <UI.InputContainer>
-          <UI.Input placeholder="Entrez votre todo ..." onChange={onTaskChange} />
+          <UI.Input
+            placeholder="Entrez votre todo ..."
+            onChange={onTaskChange}
+          />
 
           <UI.InputIcon
             className="fa-solid fa-circle-plus"
