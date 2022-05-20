@@ -8,14 +8,14 @@ type ProfileProps = {
 
 export default function Profile({ open, onClose }: ProfileProps) {
   return (
-    <UI.GreenRightFrame open={open}>
-      <UI.GreenFrameHeader>
-        <UI.GreenFrameClose
+    <UI.PinkRightFrame open={open}>
+      <UI.PinkFrameHeader>
+        <UI.PinkFrameClose
           className="fa-solid fa-circle-xmark"
           onClick={onClose}
-        ></UI.GreenFrameClose>
-        <UI.GreenFrameTitle>Mon Profil</UI.GreenFrameTitle>
-      </UI.GreenFrameHeader>
-    </UI.GreenRightFrame>
+        ></UI.PinkFrameClose>
+        <UI.PinkFrameTitle>Mon Profil</UI.PinkFrameTitle>
+      </UI.PinkFrameHeader>
+    </UI.PinkRightFrame>
   )
 }

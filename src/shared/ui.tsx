@@ -14,12 +14,12 @@ import styled, { createGlobalStyle } from 'styled-components'
 // ============================================
 export const theme = {
   colors: {
-    coldWhite: '#EDFFFB',
-    softBlack: '#4F4F4F',
-    greenOcean: '#075252',
-    validGreen: '#557859',
-    red: '#BB8579',
-    deepBlue: '#264F4A',
+    coldWhite: '#F2EBE5',
+    softBlack: '#2B262D',
+    pinkOcean: '#9F496E',
+    validPurple: '#4d224a',
+    red: '#d39081',
+    deepBlue: '#647295',
     white: '#EFEFEF',
   },
 }
@@ -68,7 +68,7 @@ export const StretchFlexContainer = styled.div`
 
 export const TopNav = styled.nav`
   display: flex;
-  background-color: ${theme.colors.greenOcean};
+  background-color: ${theme.colors.pinkOcean};
   color: ${theme.colors.coldWhite};
   align-items: center;
   padding: 0px 0.6rem;
@@ -103,7 +103,7 @@ export const Tag = styled.div`
 export const TagIcon = styled.i`
   display: flex;
   font-size: 1.4rem;
-  color: ${theme.colors.greenOcean};
+  color: ${theme.colors.pinkOcean};
 `
 
 export const TagLabelContainer = styled.div`
@@ -120,7 +120,7 @@ export const TagLabelEntitled = styled.p`
 `
 
 export const TagLabel = styled.p`
-  color: ${theme.colors.greenOcean};
+  color: ${theme.colors.pinkOcean};
   margin: 0;
   font-size: 0.8rem;
   font-weight: bold;
@@ -130,7 +130,7 @@ export const InputContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid ${theme.colors.greenOcean};
+  border-bottom: 1px solid ${theme.colors.pinkOcean};
 `
 export const Text = styled.div `
   padding: 0.9rem;
@@ -150,7 +150,7 @@ export const Input = styled.input`
 
 export const InputIcon = styled.i`
   display: flex;
-  color: ${theme.colors.validGreen};
+  color: ${theme.colors.validPurple};
   font-size: 1.6rem;
   padding: 0.6rem;
 `
@@ -168,7 +168,7 @@ export const Todo = styled.div<TodoProps>`
   display: flex;
   padding: 0.6rem 1.2rem;
   background-color: ${props =>
-    props.done ? theme.colors.validGreen : theme.colors.white};
+    props.done ? theme.colors.validPurple : theme.colors.white};
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3) inset;
   align-items: center;
   transition: all 0.5s;
@@ -195,7 +195,7 @@ export const BottomNav = styled.footer`
   bottom: 0;
   width: 100vw;
   box-sizing: border-box;
-  background-color: ${theme.colors.greenOcean};
+  background-color: ${theme.colors.pinkOcean};
   color: ${theme.colors.coldWhite};
   flex-direction: column;
   align-items: stretch;
@@ -214,7 +214,7 @@ export const BottomNavShare = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${theme.colors.validGreen};
+  background-color: ${theme.colors.validPurple};
   cursor: pointer;
 `
 
@@ -242,14 +242,14 @@ type GreenRightFrameProps = {
   open?: boolean
 }
 
-export const GreenRightFrame = styled.div<GreenRightFrameProps>`
+export const PinkRightFrame = styled.div<GreenRightFrameProps>`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   display: flex;
-  background-color: ${theme.colors.greenOcean};
+  background-color: ${theme.colors.pinkOcean};
   color: ${theme.colors.white};
   transition: all 0.5s;
   transform: ${props =>
@@ -261,16 +261,16 @@ translateX(105vw)`};
   flex-direction: column;
   align-items: stretch;
 `
-export const GreenFrameHeader = styled.div`
+export const PinkFrameHeader = styled.div`
   padding: 0 0.6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `
-export const GreenFrameClose = styled.div`
+export const PinkFrameClose = styled.div`
   font-size: 1.4rem;
 `
-export const GreenFrameTitle = styled.div`
+export const PinkFrameTitle = styled.div`
   text-align: right;
   font-size: 1.7rem;
   font-family: 'Lobster', sans-serif;
