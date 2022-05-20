@@ -1,4 +1,6 @@
 // Import de styled components
+import { type } from '@testing-library/user-event/dist/type'
+import { trace } from 'console'
 import styled, { createGlobalStyle } from 'styled-components'
 
 /**
@@ -234,6 +236,44 @@ export const BottomNavItem = styled.i`
   font-size: 1.2rem;
 `
 
+type GreenRightFrameProps = {
+  open?: boolean
+}
+
+export const GreenRightFrame = styled.div<GreenRightFrameProps>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background-color: ${theme.colors.greenOcean};
+  color: ${theme.colors.white};
+  transition: all 0.5s;
+  transform: ${props =>
+    props.open
+      ? `translateX(0)`
+      : `
+translateX(105vw)`};
+  z-index: 10;
+  flex-direction: column;
+  align-items: stretch;
+`
+export const GreenFrameHeader = styled.div`
+  padding: 0 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+export const GreenFrameClose = styled.div`
+font-size: 1.4rem;
+`
+export const GreenFrameTitle = styled.div`
+text-align: right;
+font-size: 1.7rem;
+font-family: 'Lobster', sans-serif;
+`
+
 // ===========
 // POUR LE FUN
 // ===========
@@ -241,4 +281,4 @@ export const BottomNavItem = styled.i`
 export const MyParagraph = styled.p`
   text-align: center;
   color: #725498;
-  `
+`
