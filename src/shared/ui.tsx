@@ -132,7 +132,9 @@ export const InputContainer = styled.div`
   width: 100%;
   border-bottom: 1px solid ${theme.colors.greenOcean};
 `
-
+export const Text = styled.div `
+  padding: 0.9rem;
+`
 export const Input = styled.input`
   display: flex;
   flex-grow: 2;
@@ -266,12 +268,12 @@ export const GreenFrameHeader = styled.div`
   justify-content: space-between;
 `
 export const GreenFrameClose = styled.div`
-font-size: 1.4rem;
+  font-size: 1.4rem;
 `
 export const GreenFrameTitle = styled.div`
-text-align: right;
-font-size: 1.7rem;
-font-family: 'Lobster', sans-serif;
+  text-align: right;
+  font-size: 1.7rem;
+  font-family: 'Lobster', sans-serif;
 `
 
 // ===========

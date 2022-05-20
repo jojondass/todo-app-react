@@ -168,7 +168,8 @@ export default function TodoList() {
 
       <UI.StretchFlexContainer>
         <UI.InputContainer>
-          <UI.Input placeholder="votre todo ..." onChange={onTaskChange} />
+          <UI.Input placeholder="Entrez votre todo ..." onChange={onTaskChange} />
+
           <UI.InputIcon
             className="fa-solid fa-circle-plus"
             onClick={addTaskToList}
@@ -192,7 +193,9 @@ export default function TodoList() {
             </UI.Todo>
           ))
         ) : (
-          <p>Vous n'avez pas encore de taches</p>
+          <UI.Text>
+            <p>Vous n'avez pas encore de taches</p>
+          </UI.Text>
         )}
       </UI.TodoListContainer>
       <BottomNav

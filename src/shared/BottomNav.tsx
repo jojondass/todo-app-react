@@ -21,7 +21,7 @@ export default function BottomNav({ topBar }: BottomNavProps) {
         <UI.BottomNavItem className="fa-solid fa-bars"></UI.BottomNavItem>
         <UI.BottomNavItem className="fa-solid fa-user" onClick={toggleProfile}></UI.BottomNavItem>
       </UI.BottomNavMenu>
-      <Profile open={profileOpen} />
+      <Profile open={profileOpen} onClose={toggleProfile}/>
     </UI.BottomNav>
   )
 }
