@@ -72,12 +72,18 @@ export default function TodoList() {
 
   useEffect(() => {
     console.log('Souscription au tpic "changeUsername"')
+    
     const onUsernameChange = (topic: string, newUsername: string) => {
       console.log('récéption du username : ' + username)
       setUsername(newUsername)
     }
 
     PubSub.subscribe('changeUsername', onUsernameChange)
+
+    return () => {
+      console.log('Désinscription au topic changeUsername')
+      PubSub.unsubscribe(onUsernameChange)
+    }
   }, [])
 
   // onTaskChange :: (React.SyntheticEvent) -> void
